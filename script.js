@@ -8,15 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const contadorIndice = document.getElementById("contador-indice");
 
 
-
-
     let images = [];
     let legends = [];
     let legendIndex = 0;
     let totalLegends = 0;
 
     let zoomLevel = 1;
-
 
 
     // Función para mover la imagen dentro del contenedor
@@ -42,12 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
             imagen.style.top = `${newY}px`;
         }
     }
-
-
-
-
-
-
 
 
 
@@ -100,22 +91,54 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function mostrarLeyendaCompleta() {
+        const leyendaContainer = document.querySelector('.leyenda-container');
+        const leyenda = legends[legendIndex];
+        leyendaContainer.innerHTML = `
+            <p class="leyenda">${leyenda}</p>
+            <div id="contador-indice">${legendIndex + 1}/${totalLegends}</div>
+            <a id="ver-menos" href="#">Ver menos</a>
+        `;
+        document.getElementById("ver-menos").addEventListener("click", function () {
+            mostrarLeyenda();
+        });
+    }
+
     function mostrarLeyenda() {
         const imagenContainer = document.querySelector('.imagen-container');
         const leyendaContainer = document.querySelector('.leyenda-container');
-    
         const imagen = new Image();
         imagen.src = images[legendIndex];
         imagenContainer.innerHTML = '';
         imagen.onload = function () {
             imagenContainer.appendChild(imagen);
-            leyendaContainer.innerHTML = `
-                <p class="leyenda">${legends[legendIndex]}</p>
-                <div id="contador-indice">${legendIndex + 1}/${totalLegends}</div>
-                <a id="imagen-url" href="${images[legendIndex]}" target="_blank">Ver foto en otra pestaña</a>
-            `;
-    
+            const leyenda = legends[legendIndex];
+            const maxLength = 100;
+            let leyendaHTML = '';
+            if (leyenda.length > maxLength) {
+                const shortenedLeyenda = leyenda.substring(0, maxLength) + '...';
+                leyendaHTML = `
+                    <p class="leyenda">${shortenedLeyenda}</p>
+                    <a id="ver-mas" href="#">Ver más</a>
+                    </br>
+                    <div id="contador-indice">
+                        ${legendIndex + 1}/${totalLegends}
+                    </div>
+                `;
+            } else {
+                leyendaHTML = `
+                    <p class="leyenda">${leyenda}</p>
+                    <div id="contador-indice">${legendIndex + 1}/${totalLegends}</div>
+                `;
+            }
+
+            leyendaHTML += `<a id="imagen-url" href="${images[legendIndex]}" title="Ver imagen en otra pestaña" target="_blank">&#128247;</a>`;
+            leyendaContainer.innerHTML = leyendaHTML;
             applyZoom();
+            
+            document.getElementById("ver-mas").addEventListener("click", function () {
+                mostrarLeyendaCompleta();
+            });
         };
     }
     

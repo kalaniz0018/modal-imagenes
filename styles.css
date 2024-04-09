@@ -30,20 +30,19 @@
     justify-content: center;
     align-items: center;
     max-width: 800px;
-    max-height: 540px;
+    max-height: 450px;
     overflow: hidden;
 
 }
-
-
 .imagen-container img {
-    width: 800px !important;
-    height: 700px !important;
+    width: 900% !important;
+    height: 900px !important;
     object-fit: contain;
 
 }
-
-
 .modal-buttons {
     display: block;
+}
+.leyenda {
+    margin: 0;
 }
