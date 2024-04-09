@@ -1,0 +1,24 @@
+{
+    "data": {
+      "imagenes": [
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9159752098313239786/03-02-23_13:07:07_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9159819627513795047/08-03-23_10:37:26_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9164541524613402106/31-08-23_12:55:24_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9159787869713045234/02-02-23_12:05:38_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9160686424713426331/23-12-23_13:06:08_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9159940922713102865/29-10-22_10:57:21_image_0.jpeg",
+        "https://ossokdprod.telecentro.net.ar/acondicionamiento/taps/image/9159940922713102871/28-10-22_10:43:25_image_0.jpeg"
+      ],
+      "legend": [
+        "Esta es una legend de ejemplo 1",
+        "Esta es una legend de ejemplo 2",
+        "Esta es una legend de ejemplo 3",
+        "Esta es una legend de ejemplo 4",
+        "Esta es una legend de ejemplo 5",
+        "Esta es una legend de ejemplo 6",
+        "Esta es una legend de ejemplo 7"
+      ],
+      "count": 6
+    }
+  }
+  

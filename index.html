@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Imágenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="ver-foto-button">Ver Foto</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="modal-content">
+            <!-- Contenedor de la imagen -->
+            <div class="imagen-container">
+                <img id="imagen" alt="Imagen" class="imagen">
+            </div>
+            <!-- Contenedor de la leyenda y contador de índice -->
+            <div class="leyenda-container">
+                <p id="leyenda-text" class="leyenda"></p>
+                <div id="contador-indice"></div>
+            </div>
+            <div class="modal-buttons">
+                <button id="anterior-button">Anterior</button>
+                <button id="siguiente-button">Siguiente</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
