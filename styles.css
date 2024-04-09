@@ -1,6 +1,7 @@
 /* Estilos para el modal */
 .modal {
-    display: none; /* Por defecto, ocultar el modal */
+    display: none;
+    /* Por defecto, ocultar el modal */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -8,7 +9,8 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semi-transparente */
 }
 
 .modal-content {
@@ -19,35 +21,26 @@
     width: 80%;
     max-width: 600px;
     text-align: center;
-    margin-top: 10px!important;
-    margin-bottom: 10px!important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 
 }
+
 .imagen-container {
     max-width: 800px;
     max-height: 580px;
-    overflow: hidden;
+     overflow: hidden;
+    
 }
-.imagen-container img {
-    max-width: 800px!important;
-    max-height: 600px!important;
-    overflow: hidden;
-}
-
 
 .imagen-container img {
-    width: 100%; /* Ancho del 100% del contenedor */
-    height: 100%; /* Altura del 100% del contenedor */
-    object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen */
+    width: 800px !important;
+    height: 600px !important;
+    /* object-fit: cover; */
+    object-fit:contain;
 }
 
-.leyenda-container {
-    /* Estilos para el contenedor de la leyenda */
-}
 
-.leyenda {
-    /* Estilos para el texto de la leyenda */
-}
 .modal-buttons {
     display: block;
 }
