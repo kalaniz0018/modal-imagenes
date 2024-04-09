@@ -7,12 +7,72 @@ document.addEventListener("DOMContentLoaded", function () {
     const siguienteButton = document.getElementById("siguiente-button");
     const contadorIndice = document.getElementById("contador-indice");
 
+    let dragStartX = 0; 
+    let dragStartY = 0; 
+    let isDragging = false; // Indicador de si se está arrastrando la imagen
+
+
     let images = [];
     let legends = [];
     let legendIndex = 0;
     let totalLegends = 0;
 
     let zoomLevel = 1;
+
+      // Evento de inicio de arrastre (clic del mouse)
+      function startDrag(event) {
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+    }
+
+// Función para mover la imagen dentro del contenedor
+function moveImage(deltaX, deltaY) {
+    const imagenContainer = document.querySelector('.imagen-container');
+    const imagen = imagenContainer.querySelector('img');
+
+    if (imagen) {
+        // Obtener la posición actual de la imagen
+        let currentX = parseFloat(imagen.style.left) || 0;
+        let currentY = parseFloat(imagen.style.top) || 0;
+
+        // Ajustar el desplazamiento de acuerdo al nivel de zoom
+        const zoomedDeltaX = deltaX / zoomLevel;
+        const zoomedDeltaY = deltaY / zoomLevel;
+
+        // Calcular la nueva posición de la imagen
+        const newX = currentX + zoomedDeltaX;
+        const newY = currentY + zoomedDeltaY;
+
+        // Establecer la nueva posición de la imagen
+        imagen.style.left = `${newX}px`;
+        imagen.style.top = `${newY}px`;
+    }
+}
+
+
+
+        // Evento de arrastre (movimiento del mouse)
+        function drag(event) {
+            if (isDragging) {
+                const deltaX = event.clientX - dragStartX;
+                const deltaY = event.clientY - dragStartY;
+    
+                // Mover la imagen según la cantidad de desplazamiento
+                moveImage(deltaX, deltaY);
+    
+                // Actualizar las coordenadas de inicio del arrastre
+                dragStartX = event.clientX;
+                dragStartY = event.clientY;
+            }
+        }
+
+
+
+      // Evento de finalización de arrastre (soltar el clic del mouse)
+      function endDrag() {
+        isDragging = false;
+    }
 
     verFotoButton.addEventListener("click", function () {
 
@@ -79,10 +139,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Llamar a applyZoom después de que la imagen se haya cargado
             applyZoom();
+
+              // Agregar eventos de arrastre a la imagen
+        imagenContainer.addEventListener('mousedown', startDrag);
+        imagenContainer.addEventListener('mouseup', endDrag);
+        imagenContainer.addEventListener('mouseleave', endDrag);
+        imagenContainer.addEventListener('mousemove', drag);
         };
 
     }
-
     function applyZoom() {
         const imagenContainer = document.querySelector('.imagen-container');
         const imagen = imagenContainer.querySelector('img');
@@ -92,7 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.error("No se encontró ningún elemento de imagen dentro del contenedor.");
         }
-    }
+    }  
+
 
 
     anteriorButton.addEventListener("click", function () {
