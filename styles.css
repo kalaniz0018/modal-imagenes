@@ -27,17 +27,21 @@
 }
 
 .imagen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
-    max-height: 580px;
-     overflow: hidden;
-    
+    max-height: 600px;
+    overflow: hidden;
+
 }
 
 .imagen-container img {
     width: 800px !important;
     height: 600px !important;
-    /* object-fit: cover; */
-    object-fit:contain;
+    /*  object-fit: cover;  */
+    object-fit: contain;
+
 }
 
 
