@@ -34,15 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error al cargar el JSON:", error));
     });
 
-    // Función para aplicar el zoom a la imagen
-    /*     function applyZoom() {
-            const imagen = document.getElementById("imagen");
-            if (imagen) {
-                imagen.style.transform = `scale(${zoomLevel})`;
-            } else {
-                console.error("El elemento con ID 'imagen' no se ha encontrado en el DOM.");
-            }
-        } */
     // Función para aumentar el zoom
     function zoomIn() {
         zoomLevel += 0.1;

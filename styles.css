@@ -1,7 +1,6 @@
-/* Estilos para el modal */
 .modal {
     display: none;
-    /* Por defecto, ocultar el modal */
+
     position: fixed;
     z-index: 1;
     left: 0;
@@ -10,7 +9,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro semi-transparente */
+
 }
 
 .modal-content {
@@ -39,7 +38,6 @@
 .imagen-container img {
     width: 800px !important;
     height: 600px !important;
-    /*  object-fit: cover;  */
     object-fit: contain;
 
 }
