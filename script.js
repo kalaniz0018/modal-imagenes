@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             leyendaContainer.innerHTML = `
                 <p class="leyenda">${legends[legendIndex]}</p>
                 <div id="contador-indice">${legendIndex + 1}/${totalLegends}</div>
-                <a id="imagen-url" href="${images[legendIndex]}" target="_blank">Ver foto</a>
+                <a id="imagen-url" href="${images[legendIndex]}" target="_blank">Ver foto en otra pestaña</a>
             `;
     
             applyZoom();
